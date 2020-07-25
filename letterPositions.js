@@ -19,13 +19,25 @@ const eqArrays = function(array1, array2){
   }
   return true
 }
-const letterPositions = function(sentence) {
-  
-  const results = {};
-  for(var i of sentence){
-    results[letters] = []
 
+
+ 
+const letterPositions = function(sentence) {
+  const results = {};
+  for(let i of sentence){
+    results[i] = [];
   }
-  //return results;
+  for(var j in results){
+    for(var k  = 0; k < sentence.length;k++)
+      {
+          if(j === sentence[k])
+          {
+              results[j].push(k);
+          }
+      }
+  }
+  
+  return results;
 };
 console.log(letterPositions("hello"))
+assertEqual(letterPositions("hello").e, [1])
